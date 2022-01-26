@@ -14,6 +14,16 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan bijhouden?
 // Log het antwoord in de terminal.
 
+let cumLaudeStudents = 0
+
+for (let i = 0; i < grades.length; i++) {
+    if (i >= 8) {
+        cumLaudeStudents = cumLaudeStudents + 1;
+    }
+}
+
+console.log (cumLaudeStudents);
+
 // ---- Verwachte uitkomst: 6
 
 
@@ -22,12 +32,27 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Zorg ervoor dat jouw functie ook werkt als we een andere array met eindcijfers willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
 
+function cumLaude(arraysNumbers) {
+    let cumLaudeStudents = 0
+
+    for (let i = 0; i < arraysNumbers.length; i++) {
+        if (arraysNumbers[i] >= 8) {
+            cumLaudeStudents = cumLaudeStudents + 1;
+        }
+    }
+    return cumLaudeStudents
+}
+
+const graduation1 = cumLaude(grades);
+const graduation2 = cumLaude([6, 4, 5]);
+const graduation3= cumLaude([8, 9, 4, 6, 10]);
+console.log(graduation1);
+console.log(graduation2);
+console.log(graduation3);
 // ---- Verwachte uitkomsten:
 // cumLaude(grades) geeft 6
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
-
-
 
 
 /* Opdracht  2: Gemiddeld cijfer */
@@ -40,6 +65,13 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Hoe zorgt ik ervoor dat ik alle waardes uit de array kan langslopen, ook als de array wel 100 entries zou bevatten?
 // Log het antwoord in de terminal.
 
+let sum = 0;
+
+for (let i = 0; i < grades.length; i++) {
+    sum = sum + grades[i];
+}
+
+console.log(sum / grades.length);
 // ---- Verwachte uitkomst: 6.642857142857143
 
 
@@ -48,6 +80,22 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
 
+function averageGrade(arraysToAverage) {
+    let sum = 0;
+
+    for (let i = 0; i < arraysToAverage.length; i++) {
+        sum = sum + arraysToAverage[i];
+    }
+    let average = sum / arraysToAverage.length;
+    return average
+}
+
+const average1 = averageGrade(grades);
+const average2 = averageGrade([6, 4, 5]);
+const average3 = averageGrade([8, 9, 4, 6, 10]);
+console.log(average1);
+console.log(average2);
+console.log(average3);
 // ---- Verwachte uitkomsten:
 // averageGrade(grades) geeft 6.642857142857143
 // averageGrade([6, 4, 5]) geeft xxxx
@@ -57,7 +105,9 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
-
+console.log(average1.toFixed(2));
+console.log(average2.toFixed(2));
+console.log(average3.toFixed(2));
 
 
 
@@ -70,6 +120,15 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan opslaan?
 // Log het antwoord in de terminal.
 
+let highestNumber = 0;
+
+for (let i = 0; i < grades.length; i++) {
+    if (grades[i] > highestNumber) {
+        highestNumber = grades [i];
+    }
+}
+console.log(highestNumber);
+
 // ---- Verwachte uitkomst: 9
 
 
@@ -78,6 +137,24 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
 
+function highestGrade(highGrades) {
+    let highestNumber = 0;
+
+    for (let i = 0; i < highGrades.length; i++) {
+        if (highGrades[i] > highestNumber) {
+            highestNumber = highGrades [i];
+        }
+    }
+    return highestNumber
+}
+
+const high1 = highestGrade(grades);
+const high2 = highestGrade([6, 4, 5]);
+const high3 = highestGrade([8, 9, 4, 6, 10]);
+
+console.log(high1);
+console.log(high2);
+console.log(high3);
 // ---- Verwachte uitkomsten:
 // highestGrade(grades) geeft 9
 // highestGrade([6, 4, 5]) geeft 6
